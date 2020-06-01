@@ -20,11 +20,25 @@ let table = document.getElementById('table-info');
 let htmlas = "";
 let menuo = 0;
 let balansas = 0;
+let iplaukuSum = 0;
+let islaiduSum = 0;
+let balansoSum = 0;
+let iplauka = document.getElementById("iplauka");
+let islaida = document.getElementById("islaida");
+let balanso = document.getElementById("balanso");
 for (let i = 0; i < account.length; i++) {
+
     menuo = account[i].month;
     balansas = account[i].income - account[i].expense;
+    iplaukuSum = iplaukuSum + account[i].income;
+    islaiduSum = islaiduSum + account[i].expense;
+    balansoSum = balansoSum + balansas;
+
     htmlas = htmlas +
         "<div class='table-row'><div class='cell'>" + i + "</div><div class='cell'>" + month[menuo - 1] + "</div><div class='cell'>" + account[i].income + "</div><div class='cell'>" + account[i].expense + "</div><div class='cell'>" + balansas + "</div></div>";
 }
 
 table.innerHTML = htmlas;
+iplauka.innerHTML = iplaukuSum;
+islaida.innerHTML = islaiduSum;
+balanso.innerHTML = balansoSum;
