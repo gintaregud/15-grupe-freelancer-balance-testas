@@ -15,4 +15,16 @@ const account = [
 
 const month = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', "Lapkritis", 'Gruodis'];
 
-let table = document.getElementById('lentele');
+let table = document.getElementById('table-info');
+
+let htmlas = "";
+let menuo = 0;
+let balansas = 0;
+for (let i = 0; i < account.length; i++) {
+    menuo = account[i].month;
+    balansas = account[i].income - account[i].expense;
+    htmlas = htmlas +
+        "<div class='table-row'><div class='cell'>" + i + "</div><div class='cell'>" + month[menuo - 1] + "</div><div class='cell'>" + account[i].income + "</div><div class='cell'>" + account[i].expense + "</div><div class='cell'>" + balansas + "</div></div>";
+}
+
+table.innerHTML = htmlas;
